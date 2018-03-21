@@ -6,7 +6,7 @@ var Workers = function(config){
 	config = config || {}
 
 	
-	console.log('Inicia conexión');
+	console.log('Inicia conexión, WebServiceProject');
 
 	var app = new expressServer({parameters : conf });
 
