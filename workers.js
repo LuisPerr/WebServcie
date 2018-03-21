@@ -1,12 +1,13 @@
 var http = require('http'),
 	conf = require('./conf'),
+	colors = require( 'colors' );
 	expressServer = require('./server/expressServer');
 
 var Workers = function(config){
 	config = config || {}
 
 	
-	console.log('Inicia conexión, WebServiceProject');
+	console.log('Inicia conexión, WebServiceProject'.red);
 
 	var app = new expressServer({parameters : conf });
 
@@ -15,7 +16,10 @@ var Workers = function(config){
 }
 
 Workers.prototype.run = function(){
-	this.server.listen(conf.port, '0.0.0.0');
+	this.server.listen(conf.port, '0.0.0.0', function() {
+		console.log('Escuchando en el puerto: '.blue + conf.port);
+		
+	});
 }
 
 if(module.parent){
